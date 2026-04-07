@@ -20,7 +20,7 @@ public class Main{
             System.out.println("\nDeseja continuar? (sim/não)");
             continua = scanner.nextLine();
 
-        }while (continua.equalsIgnoreCase("sim"));
+        } while (continua.equalsIgnoreCase("sim"));
 
 
         System.out.println("Programa encerrado.");
