@@ -18,8 +18,7 @@ public class Main {
         return primeiro_numero / segundo_numero;
     }
 
-    public static double recebeValorPrimerioNumero(){
-        Scanner scanner = new Scanner(System.in);
+    public static double recebeValorPrimerioNumero(Scanner scanner){
         double primeiroNumero;
 
         System.out.println("Informe o primeiro número:");
@@ -28,8 +27,7 @@ public class Main {
         return primeiroNumero;
     }
 
-    public static double recebeValorSegundoNumero(){
-        Scanner scanner = new Scanner(System.in);
+    public static double recebeValorSegundoNumero(Scanner scanner){
         double segundoNumero;
 
         System.out.println("Informe o segundo número:");
@@ -55,9 +53,9 @@ public class Main {
         System.out.println("Informe o operador: (+ - x /)\n Soma(+) \n Subtração(-) \n Multiplicação (x) \n Divisão (/)");
         operador = scanner.nextLine();
 
-        primeiroNumero = recebeValorPrimerioNumero();
+        primeiroNumero = recebeValorPrimerioNumero(scanner);
 
-        segundoNumero = recebeValorSegundoNumero();
+        segundoNumero = recebeValorSegundoNumero(scanner);
 
         switch (operador){
             case "+":
