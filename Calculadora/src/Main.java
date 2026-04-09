@@ -2,77 +2,100 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static double somar(double primeiro_numero, double segundo_numero){
-        return primeiro_numero + segundo_numero;
+    public static double somar(double primeiroNumero, double segundoNumero){
+        return primeiroNumero + segundoNumero;
     }
 
-    public static double subtrair(double primeiro_numero, double segundo_numero){
-        return primeiro_numero - segundo_numero;
+    public static double subtrair(double primeiroNumero, double segundoNumero){
+        return primeiroNumero - segundoNumero;
     }
 
-    public static double multiplicar(double primeiro_numero, double segundo_numero){
-        return primeiro_numero * segundo_numero;
+    public static double multiplicar(double primeiroNumero, double segundoNumero){
+        return primeiroNumero * segundoNumero;
     }
 
-    public static double dividir(double primeiro_numero, double segundo_numero){
-        return primeiro_numero / segundo_numero;
+    public static double dividir(double primeiroNumero, double segundoNumero){
+        return primeiroNumero / segundoNumero;
     }
 
-    public static double lerPrimeiroValor(Scanner scanner){
-        double primeiroNumero;
+    public static String lerOperador(Scanner scanner){
 
-        System.out.println("Informe o primeiro número:");
-        primeiroNumero = scanner.nextDouble();
+        System.out.println("""
+                           \nInforme o operador: (+ - x /)
+                              Soma (+)
+                              Subtração (-)
+                              Multiplicação (x)
+                              Divisão (/)
+                           """);
 
-        return primeiroNumero;
+        return scanner.nextLine();
+
     }
 
-    public static double lerSegundoValor(Scanner scanner){
-        double segundoNumero;
+    public static double lerNumero(Scanner scanner, String mensagem){
 
-        System.out.println("Informe o segundo número:");
-        segundoNumero = scanner.nextDouble();
+        double numero;
 
-        return segundoNumero;
-    }    
+        System.out.println(mensagem);
+        numero = scanner.nextDouble();
+        scanner.nextLine(); //limpa o buffer
+
+        return numero;
+    }
+
+    public static String desejaContinuar(Scanner scanner){
+        System.out.println("\n\nDeseja calcular novamente? (sim/não)");
+        return scanner.nextLine();
+    }
 
     public static void main(String[] args) {
 
-        String operador;
         double primeiroNumero, segundoNumero;
+        String continuar;
         Scanner scanner = new Scanner(System.in);
+        String operador;
 
-        System.out.println("Calculadora Java\n");
+        System.out.println("\nCALCULADORA JAVA\n");
 
-        System.out.println("Informe o operador: (+ - x /)\n Soma(+) \n Subtração(-) \n Multiplicação (x) \n Divisão (/)");
-        operador = scanner.nextLine();
+        do {
+            operador = lerOperador(scanner);
 
-        primeiroNumero = lerPrimeiroValor(scanner);
+            primeiroNumero = lerNumero(scanner,"\nInforme o primeiro número:");
 
-        segundoNumero = lerSegundoValor(scanner);
+            segundoNumero = lerNumero(scanner,"Informe o segundo número:");
 
-        while (segundoNumero == 0 && operador.equals("/")) {
-            System.out.println("Não é possível dividir por zero (0)!");
-            segundoNumero = lerSegundoValor(scanner);
-        }
+            while (segundoNumero == 0 && operador.equals("/")) {
+                System.out.println("\nATENÇÃO! Não é possível dividir por zero (0)!");
+                segundoNumero = lerNumero(scanner,"\nInforme novamente o segundo número:");
+            }
 
-        switch (operador){
-            case "+":
-                System.out.println(somar(primeiroNumero, segundoNumero));
-                break;
-            case "-":
-                System.out.println(subtrair(primeiroNumero,segundoNumero));
-                break;
-            case "x":
-                System.out.println(multiplicar(primeiroNumero,segundoNumero));
-                break;
-            case "/":
-                System.out.println(dividir(primeiroNumero,segundoNumero));
-                break;
-            default:
-                System.out.println("Operador inválido.");
-        }
+            System.out.println("\nRESULTADO: ");
+
+            switch (operador) {
+                case "+":
+                    System.out.print(somar(primeiroNumero, segundoNumero));
+                    break;
+                case "-":
+                    System.out.print(subtrair(primeiroNumero, segundoNumero));
+                    break;
+                case "x":
+                    System.out.print(multiplicar(primeiroNumero, segundoNumero));
+                    break;
+                case "/":
+                    System.out.print(dividir(primeiroNumero, segundoNumero));
+                    break;
+                default:
+                    System.out.print("Operador inválido.");
+            }
+
+            continuar = desejaContinuar(scanner);
+
+        } while(continuar.equalsIgnoreCase("sim"));
+
+        System.out.println("\nSistema encerrado!");
 
         scanner.close();
+
     }
+
 }
