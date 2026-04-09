@@ -18,7 +18,7 @@ public class Main {
         return primeiro_numero / segundo_numero;
     }
 
-    public static double recebeValorPrimerioNumero(Scanner scanner){
+    public static double lerPrimeiroValor(Scanner scanner){
         double primeiroNumero;
 
         System.out.println("Informe o primeiro número:");
@@ -27,17 +27,11 @@ public class Main {
         return primeiroNumero;
     }
 
-    public static double recebeValorSegundoNumero(Scanner scanner){
+    public static double lerSegundoValor(Scanner scanner){
         double segundoNumero;
 
         System.out.println("Informe o segundo número:");
         segundoNumero = scanner.nextDouble();
-
-        while (segundoNumero == 0) {
-            System.out.println("Não é possível dividir por zero (0)!");
-            System.out.println("Informe novamente o segundo número:");
-            segundoNumero = scanner.nextDouble();
-        }
 
         return segundoNumero;
     }    
@@ -53,9 +47,14 @@ public class Main {
         System.out.println("Informe o operador: (+ - x /)\n Soma(+) \n Subtração(-) \n Multiplicação (x) \n Divisão (/)");
         operador = scanner.nextLine();
 
-        primeiroNumero = recebeValorPrimerioNumero(scanner);
+        primeiroNumero = lerPrimeiroValor(scanner);
 
-        segundoNumero = recebeValorSegundoNumero(scanner);
+        segundoNumero = lerSegundoValor(scanner);
+
+        while (segundoNumero == 0 && operador.equals("/")) {
+            System.out.println("Não é possível dividir por zero (0)!");
+            segundoNumero = lerSegundoValor(scanner);
+        }
 
         switch (operador){
             case "+":
