@@ -25,7 +25,7 @@ public class Main {
     public static String lerOperador(Scanner scanner){
 
         System.out.println("""
-                           \nInforme o operador: (+ - x /)
+                           \nInforme o operador: (+ - x / %)
                               Soma (+)
                               Subtração (-)
                               Multiplicação (x)
@@ -53,6 +53,16 @@ public class Main {
         return scanner.nextLine();
     }
 
+    public static double validarDivisao(String operador, double segundoNumero, Scanner scanner){
+
+        while (segundoNumero == 0 && operador.equals("/")) {
+            System.out.println("\nATENÇÃO! Não é possível dividir por zero (0)!");
+            segundoNumero = lerNumero(scanner,"\nInforme novamente o segundo número:");
+        }
+
+        return segundoNumero;
+    }
+
     public static void main(String[] args) {
 
         double primeiroNumero, segundoNumero;
@@ -70,10 +80,7 @@ public class Main {
 
             segundoNumero = lerNumero(scanner,"Informe o segundo número:");
 
-            while (segundoNumero == 0 && operador.equals("/")) {
-                System.out.println("\nATENÇÃO! Não é possível dividir por zero (0)!");
-                segundoNumero = lerNumero(scanner,"\nInforme novamente o segundo número:");
-            }
+            validarDivisao(operador, segundoNumero, scanner);
 
             System.out.println("\nRESULTADO: ");
 
