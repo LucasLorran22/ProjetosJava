@@ -18,7 +18,7 @@ public class Main {
         return primeiroNumero / segundoNumero;
     }
 
-    public static double moduloDividicao(double primeiroNumero, double segundoNumero){
+    public static double moduloDivisao(double primeiroNumero, double segundoNumero){
         return primeiroNumero % segundoNumero;
     }
 
@@ -48,19 +48,19 @@ public class Main {
         return numero;
     }
 
-    public static String desejaContinuar(Scanner scanner){
-        System.out.println("\n\nDeseja calcular novamente? (sim/não)");
-        return scanner.nextLine();
-    }
-
     public static double validarDivisao(String operador, double segundoNumero, Scanner scanner){
 
-        while (segundoNumero == 0 && operador.equals("/")) {
+        while (segundoNumero == 0) {
             System.out.println("\nATENÇÃO! Não é possível dividir por zero (0)!");
             segundoNumero = lerNumero(scanner,"\nInforme novamente o segundo número:");
         }
 
         return segundoNumero;
+    }
+
+    public static String desejaContinuar(Scanner scanner){
+        System.out.println("\n\nDeseja calcular novamente? (sim/não)");
+        return scanner.nextLine();
     }
 
     public static void main(String[] args) {
@@ -80,7 +80,9 @@ public class Main {
 
             segundoNumero = lerNumero(scanner,"Informe o segundo número:");
 
-            validarDivisao(operador, segundoNumero, scanner);
+            if (operador.equals("/")){
+                validarDivisao(operador, segundoNumero, scanner);
+            }
 
             System.out.println("\nRESULTADO: ");
 
@@ -98,7 +100,7 @@ public class Main {
                     System.out.print(dividir(primeiroNumero, segundoNumero));
                     break;
                 case "%":
-                    System.out.println(moduloDividicao(primeiroNumero, segundoNumero));
+                    System.out.println(moduloDivisao(primeiroNumero, segundoNumero));
                     break;
                 default:
                     System.out.print("Operador inválido.");
