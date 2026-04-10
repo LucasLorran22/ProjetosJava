@@ -18,6 +18,10 @@ public class Main {
         return primeiroNumero / segundoNumero;
     }
 
+    public static double moduloDividicao(double primeiroNumero, double segundoNumero){
+        return primeiroNumero % segundoNumero;
+    }
+
     public static String lerOperador(Scanner scanner){
 
         System.out.println("""
@@ -26,6 +30,7 @@ public class Main {
                               Subtração (-)
                               Multiplicação (x)
                               Divisão (/)
+                              Módulo (%)
                            """);
 
         return scanner.nextLine();
@@ -84,6 +89,9 @@ public class Main {
                     break;
                 case "/":
                     System.out.print(dividir(primeiroNumero, segundoNumero));
+                    break;
+                case "%":
+                    System.out.println(moduloDividicao(primeiroNumero, segundoNumero));
                     break;
                 default:
                     System.out.print("Operador inválido.");
