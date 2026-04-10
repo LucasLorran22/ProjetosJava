@@ -52,8 +52,9 @@ public class Main {
 
         double primeiroNumero, segundoNumero;
         String continuar;
-        Scanner scanner = new Scanner(System.in);
         String operador;
+        Scanner scanner = new Scanner(System.in);
+
 
         System.out.println("\nCALCULADORA JAVA\n");
 
