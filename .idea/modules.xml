@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Calculadora/Calculadora.iml" filepath="$PROJECT_DIR$/Calculadora/Calculadora.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConversaoDolaresReais/ConversaoDolaresReais.iml" filepath="$PROJECT_DIR$/ConversaoDolaresReais/ConversaoDolaresReais.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConvertCelsiusToFahrenheit/ConvertCelsiusToFahrenheit.iml" filepath="$PROJECT_DIR$/ConvertCelsiusToFahrenheit/ConvertCelsiusToFahrenheit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Perfil/Perfil.iml" filepath="$PROJECT_DIR$/Perfil/Perfil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ProjetosJava.iml" filepath="$PROJECT_DIR$/.idea/ProjetosJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/primeiroprojeto/primeiroprojeto.iml" filepath="$PROJECT_DIR$/primeiroprojeto/primeiroprojeto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/screenmatch/screenmatch.iml" filepath="$PROJECT_DIR$/screenmatch/screenmatch.iml" />
+    </modules>
+  </component>
+</project>
